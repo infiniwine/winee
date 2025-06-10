@@ -12,72 +12,9 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
-.slider {
-  max-width: 420px;
-  margin: 2em auto;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.slides {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  transition: transform 0.5s cubic-bezier(.75,-0.01,.29,1.02);
-}
-.slide {
-  min-width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-}
-.navigation {
-  position: absolute;
-  left: 0; right: 0; bottom: 13px;
-  text-align: center;
-  z-index: 2;
-}
-.navigation label {
-  display: inline-block;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: #bbb;
-  margin: 0 5px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  outline: none;
-}
-input[type="radio"]:nth-of-type(1):checked ~ .slides {
-  transform: translateX(0%);
-}
-input[type="radio"]:nth-of-type(2):checked ~ .slides {
-  transform: translateX(-100%);
-}
-input[type="radio"]:nth-of-type(3):checked ~ .slides {
-  transform: translateX(-200%);
-}
-input[type="radio"]:nth-of-type(1):checked ~ .navigation label:nth-of-type(1),
-input[type="radio"]:nth-of-type(2):checked ~ .navigation label:nth-of-type(2),
-input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
-  background: #800020;
-  transform: scale(1.2);
-}
+  html {
+    scroll-behavior: smooth;
+  }
 </style>
 	</head>
 	<body class="is-preload">
@@ -90,10 +27,8 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
     <li><a href="#vip-party" style="color:#fff;text-decoration:none;font-weight:bold;">VIP Party</a></li>
   </ul>
 </nav>
-
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
-
 				<!-- One -->
 					<section id="home" class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
   <div class="content">
@@ -112,37 +47,19 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
     </div>
   </div>
 </section>
-
 				<!-- Two -->
 					<section id="about-wine" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="first">
-  <div class="content">
-    <!-- your text here -->
-  </div>
-
-  <div class="slider">
-    <input type="radio" name="slider2" id="slide2-1" checked>
-    <input type="radio" name="slider2" id="slide2-2">
-    <input type="radio" name="slider2" id="slide2-3">
-
-    <div class="slides">
-      <div class="slide s1">
-        <img src="https://fratelliwines.in/cdn/shop/products/Artboard1_53a15f3c-85ec-4f43-89b3e2396a4446ee_1200x.jpg?v=1634041520" alt="Wine Photo 1" />
-      </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="Wine Photo 2" />
-      </div>
-      <div class="slide">
-        <img src="https://images.unsplash.com/photo-1514361892635-cebb9a23bdd9" alt="Wine Photo 3" />
-      </div>
-    </div>
-    <div class="navigation">
-      <label for="slide2-1"></label>
-      <label for="slide2-2"></label>
-      <label for="slide2-3"></label>
-    </div>
-  </div>
-</section>
-
+						<div class="content">
+							<h2>Magna etiam feugiat</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
+							<ul class="actions stacked">
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul>
+						</div>
+						<div class="image">
+							<img src="https://fratelliwines.in/cdn/shop/products/Artboard1_53a15f3c-85ec-4f43-89b3-e2396a4446ee_1200x.jpg?v=1634041520" alt="Wine Photo" style="aspect-ratio:1/1;object-fit:cover; width:100%; height:auto;" />
+						</div>
+					</section>
 				<!-- Three -->
 					<section id="nft" class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
@@ -156,7 +73,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 							<img src="https://specials-images.forbesimg.com/imageserve/6410be3672b5236681ab6aba/960x0.jpg" alt="NFT Party" style="aspect-ratio:1/1;object-fit:cover;width:100%;height:auto;" />
 						</div>
 					</section>
-
 				<!-- Four -->
 					<section id="vip-party" class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
@@ -170,7 +86,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 							<img src="https://cdn.pixabay.com/photo/2022/06/02/15/01/music-7238254_1280.jpg" alt="VIP Party" style="aspect-ratio:1/1;object-fit:cover;width:100%;height:auto;" />
 						</div>
 					</section>
-
 				<!-- Four added -->
 					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
 						<div class="content">
@@ -184,14 +99,12 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 							<img src="images/spotlight02.jpg" alt="" />
 						</div>
 					</section>
-				
 				<!-- Five -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
 							<h2>Massa sed condimentum</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum.</p>
 						</div>
-
 						<!-- Gallery -->
 							<div class="gallery style2 medium lightbox onscroll-fade-in">
 								<article>
@@ -339,9 +252,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 									</div>
 								</article>
 							</div>
-
 					</section>
-
 				<!-- Six -->
 					<section class="wrapper style1 align-center">
 						<div class="inner">
@@ -411,7 +322,6 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 							</div>
 						</div>
 					</section>
-
 				<!-- Seven -->
 					<section class="wrapper style1 align-center">
 						<div class="inner medium">
@@ -435,10 +345,8 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 									<li><input type="submit" name="submit" id="submit" value="Send Message" /></li>
 								</ul>
 							</form>
-
 						</div>
 					</section>
-
 				<!-- Footer -->
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
@@ -452,9 +360,7 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
 						</div>
 					</footer>
-
 			</div>
-
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
@@ -463,36 +369,5 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const slider = document.querySelector('.slider .slides');
-  const radios = [
-    document.getElementById('slide2-1'),
-    document.getElementById('slide2-2'),
-    document.getElementById('slide2-3')
-  ];
-  let current = radios.findIndex(r => r.checked);
-  let startX = null;
-
-  slider.addEventListener('touchstart', function(e) {
-    if (e.touches.length !== 1) return;
-    startX = e.touches[0].clientX;
-  });
-
-  slider.addEventListener('touchend', function(e) {
-    if (startX === null) return;
-    const endX = e.changedTouches[0].clientX;
-    const dx = endX - startX;
-    if (dx > 40 && current > 0) {
-      radios[current - 1].checked = true;
-      current--;
-    } else if (dx < -40 && current < radios.length - 1) {
-      radios[current + 1].checked = true;
-      current++;
-    }
-    startX = null;
-  });
-});
-</script>
 	</body>
 </html>
