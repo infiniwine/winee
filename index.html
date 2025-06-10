@@ -12,85 +12,51 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
-  html {
-    scroll-behavior: smooth;
-  }
-  .slider {
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    position: relative;
-    aspect-ratio: 1 / 1;
-    overflow: hidden;
-    border-radius: 1em;
-  }
-  .slider .slides {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-  .slider .slide {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.5s;
-    text-align: center;
-  }
-  .slider .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    aspect-ratio: 1/1;
-  }
-  .slider input[type=radio] {
-    display: none;
-  }
-  .slider .navigation {
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    text-align: center;
-    z-index: 2;
-  }
-  .slider .navigation label {
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: #fff;
-    margin: 0 4px;
-    cursor: pointer;
-    border: 2px solid #333;
-  }
-  /* Section 2 */
-  #slide2-1:checked ~ .slides .s1,
-  #slide2-2:checked ~ .slides .slide:nth-of-type(2),
-  #slide2-3:checked ~ .slides .slide:nth-of-type(3) {
-    opacity: 1;
-    z-index: 1;
-  }
-  /* Section 3 */
-  #slide3-1:checked ~ .slides .s1,
-  #slide3-2:checked ~ .slides .slide:nth-of-type(2),
-  #slide3-3:checked ~ .slides .slide:nth-of-type(3) {
-    opacity: 1;
-    z-index: 1;
-  }
-  /* Section 4 */
-  #slide4-1:checked ~ .slides .s1,
-  #slide4-2:checked ~ .slides .slide:nth-of-type(2),
-  #slide4-3:checked ~ .slides .slide:nth-of-type(3) {
-    opacity: 1;
-    z-index: 1;
-  }
-  /* Section 5 */
-  #slide5-1:checked ~ .slides .s1,
-  #slide5-2:checked ~ .slides .slide:nth-of-type(2),
-  #slide5-3:checked ~ .slides .slide:nth-of-type(3) {
-    opacity: 1;
-    z-index: 1;
-  }
+.slider2 {
+  max-width: 420px;
+  margin: 2em auto;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slides2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.5s;
+}
+.slide-img2 {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1/1;
+  display: block;
+}
+.arrow {
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2em;
+  padding: 0.3em 0.5em;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+}
+.arrow.left {
+  position: absolute;
+  left: 10px;
+}
+.arrow.right {
+  position: absolute;
+  right: 10px;
+}
 </style>
 	</head>
 	<body class="is-preload">
