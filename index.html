@@ -458,68 +458,42 @@
 			<script src="assets/js/main.js"></script>
 <script>
 (function() {
-  const slider = document.getElementById('slider2');
-  const slides = slider.querySelectorAll('.slide-img2');
-  const slidesContainer = slider.querySelector('.slides2');
-  const dotsContainer = slider.querySelector('.dots2');
-  let current = 0;
-  let startX = null, deltaX = 0, isDragging = false;
+  const radios = [
+    document.getElementById('slide2-1'),
+    document.getElementById('slide2-2'),
+    document.getElementById('slide2-3')
+  ];
+  const slidesDiv = document.querySelector('.slides');
+  let current = radios.findIndex(r => r.checked);
 
-  // Create dots
-  slides.forEach((_, idx) => {
-    const dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'dot2' + (idx === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goToSlide(idx));
-    dotsContainer.appendChild(dot);
-  });
-  const dots = slider.querySelectorAll('.dot2');
-
-  function updateSlider() {
-    slidesContainer.style.transform = `translateX(-${current * 100}%)`;
-    dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  function goTo(idx) {
+    if (idx >= 0 && idx < radios.length) {
+      radios[idx].checked = true;
+      current = idx;
+    }
   }
 
-  function goToSlide(n) {
-    current = n;
-    updateSlider();
-  }
-
-  // Touch events for smooth finger swipe
-  slidesContainer.addEventListener('touchstart', function(e) {
+  // Touch/Swipe support
+  let startX = null;
+  slidesDiv.addEventListener('touchstart', function(e) {
     if (e.touches.length !== 1) return;
-    isDragging = true;
     startX = e.touches[0].clientX;
-    slidesContainer.style.transition = 'none';
+  });
+  slidesDiv.addEventListener('touchend', function(e) {
+    if (!startX) return;
+    const endX = e.changedTouches[0].clientX;
+    const dx = endX - startX;
+    if (dx > 40 && current > 0) goTo(current - 1);      // Swipe right
+    else if (dx < -40 && current < radios.length - 1) goTo(current + 1);  // Swipe left
+    startX = null;
   });
 
-  slidesContainer.addEventListener('touchmove', function(e) {
-    if (!isDragging) return;
-    const x = e.touches[0].clientX;
-    deltaX = x - startX;
-    slidesContainer.style.transform = `translateX(${-current * 100 + deltaX / slider.offsetWidth * 100}%)`;
+  // Keyboard arrows support
+  slidesDiv.tabIndex = 0;
+  slidesDiv.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowLeft" && current > 0) goTo(current - 1);
+    if (e.key === "ArrowRight" && current < radios.length - 1) goTo(current + 1);
   });
-
-  slidesContainer.addEventListener('touchend', function(e) {
-    if (!isDragging) return;
-    slidesContainer.style.transition = 'transform 0.5s cubic-bezier(.75,-0.01,.29,1.02)';
-    if (deltaX > 50 && current > 0) current--;
-    else if (deltaX < -50 && current < slides.length - 1) current++;
-    updateSlider();
-    isDragging = false;
-    deltaX = 0;
-  });
-
-  // Keyboard arrows
-  slider.tabIndex = 0;
-  slider.addEventListener('keydown', e => {
-    if (e.key === "ArrowLeft" && current > 0) goToSlide(current - 1);
-    if (e.key === "ArrowRight" && current < slides.length - 1) goToSlide(current + 1);
-  });
-
-  // Init
-  updateSlider();
-  slider.setAttribute('tabindex', '0');
 })();
 </script>
 	</body>
