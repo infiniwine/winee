@@ -440,6 +440,45 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+function plusSlide(n, sliderId) {
+  const slider = document.getElementById(sliderId);
+  const slides = slider.querySelectorAll('.slide-img2');
+  let current = parseInt(slider.getAttribute('data-current')) || 0;
+  current += n;
+  if (current < 0) current = slides.length - 1;
+  if (current >= slides.length) current = 0;
+  slider.setAttribute('data-current', current);
+  slider.querySelector('.slides2').style.transform = `translateX(-${current * 100}%)`;
+}
 
+// Initialize all sliders
+document.querySelectorAll('.slider2').forEach(slider => {
+  slider.setAttribute('data-current', 0);
+  slider.querySelector('.slides2').style.transform = 'translateX(0%)';
+
+  // Touch events for swipe
+  let startX = 0;
+  let deltaX = 0;
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+  slider.addEventListener('touchmove', e => {
+    deltaX = e.touches[0].clientX - startX;
+  });
+  slider.addEventListener('touchend', e => {
+    if (deltaX > 50) plusSlide(-1, slider.id); // Swipe right
+    if (deltaX < -50) plusSlide(1, slider.id); // Swipe left
+    deltaX = 0;
+  });
+
+  // Keyboard arrows
+  slider.tabIndex = 0;
+  slider.addEventListener('keydown', e => {
+    if (e.key === "ArrowLeft") plusSlide(-1, slider.id);
+    if (e.key === "ArrowRight") plusSlide(1, slider.id);
+  });
+});
+</script>
 	</body>
 </html>
