@@ -443,44 +443,70 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 <script>
-function plusSlide(n, sliderId) {
-  const slider = document.getElementById(sliderId);
+(function() {
+  const slider = document.getElementById('slider2');
   const slides = slider.querySelectorAll('.slide-img2');
-  let current = parseInt(slider.getAttribute('data-current')) || 0;
-  current += n;
-  if (current < 0) current = slides.length - 1;
-  if (current >= slides.length) current = 0;
-  slider.setAttribute('data-current', current);
-  slider.querySelector('.slides2').style.transform = `translateX(-${current * 100}%)`;
-}
+  const slidesContainer = slider.querySelector('.slides2');
+  const dotsContainer = slider.querySelector('.dots2');
+  let current = 0;
+  let startX = null, deltaX = 0, isDragging = false;
 
-// Initialize all sliders
-document.querySelectorAll('.slider2').forEach(slider => {
-  slider.setAttribute('data-current', 0);
-  slider.querySelector('.slides2').style.transform = 'translateX(0%)';
+  // Create dots
+  slides.forEach((_, idx) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'dot2' + (idx === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goToSlide(idx));
+    dotsContainer.appendChild(dot);
+  });
+  const dots = slider.querySelectorAll('.dot2');
 
-  // Touch events for swipe
-  let startX = 0;
-  let deltaX = 0;
-  slider.addEventListener('touchstart', e => {
+  function updateSlider() {
+    slidesContainer.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d,i) => d.classList.toggle('active', i === current));
+  }
+
+  function goToSlide(n) {
+    current = n;
+    updateSlider();
+  }
+
+  // Touch events for smooth finger swipe
+  slidesContainer.addEventListener('touchstart', function(e) {
+    if (e.touches.length !== 1) return;
+    isDragging = true;
     startX = e.touches[0].clientX;
+    slidesContainer.style.transition = 'none';
   });
-  slider.addEventListener('touchmove', e => {
-    deltaX = e.touches[0].clientX - startX;
+
+  slidesContainer.addEventListener('touchmove', function(e) {
+    if (!isDragging) return;
+    const x = e.touches[0].clientX;
+    deltaX = x - startX;
+    slidesContainer.style.transform = `translateX(${-current * 100 + deltaX / slider.offsetWidth * 100}%)`;
   });
-  slider.addEventListener('touchend', e => {
-    if (deltaX > 50) plusSlide(-1, slider.id); // Swipe right
-    if (deltaX < -50) plusSlide(1, slider.id); // Swipe left
+
+  slidesContainer.addEventListener('touchend', function(e) {
+    if (!isDragging) return;
+    slidesContainer.style.transition = 'transform 0.5s cubic-bezier(.75,-0.01,.29,1.02)';
+    if (deltaX > 50 && current > 0) current--;
+    else if (deltaX < -50 && current < slides.length - 1) current++;
+    updateSlider();
+    isDragging = false;
     deltaX = 0;
   });
 
   // Keyboard arrows
   slider.tabIndex = 0;
   slider.addEventListener('keydown', e => {
-    if (e.key === "ArrowLeft") plusSlide(-1, slider.id);
-    if (e.key === "ArrowRight") plusSlide(1, slider.id);
+    if (e.key === "ArrowLeft" && current > 0) goToSlide(current - 1);
+    if (e.key === "ArrowRight" && current < slides.length - 1) goToSlide(current + 1);
   });
-});
+
+  // Init
+  updateSlider();
+  slider.setAttribute('tabindex', '0');
+})();
 </script>
 	</body>
 </html>
