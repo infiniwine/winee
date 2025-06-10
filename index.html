@@ -464,44 +464,35 @@ input[type="radio"]:nth-of-type(3):checked ~ .navigation label:nth-of-type(3) {
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 <script>
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
+  const slider = document.querySelector('.slider .slides');
   const radios = [
     document.getElementById('slide2-1'),
     document.getElementById('slide2-2'),
     document.getElementById('slide2-3')
   ];
-  const slidesDiv = document.querySelector('.slides');
   let current = radios.findIndex(r => r.checked);
-
-  function goTo(idx) {
-    if (idx >= 0 && idx < radios.length) {
-      radios[idx].checked = true;
-      current = idx;
-    }
-  }
-
-  // Touch/Swipe support
   let startX = null;
-  slidesDiv.addEventListener('touchstart', function(e) {
+
+  slider.addEventListener('touchstart', function(e) {
     if (e.touches.length !== 1) return;
     startX = e.touches[0].clientX;
   });
-  slidesDiv.addEventListener('touchend', function(e) {
-    if (!startX) return;
+
+  slider.addEventListener('touchend', function(e) {
+    if (startX === null) return;
     const endX = e.changedTouches[0].clientX;
     const dx = endX - startX;
-    if (dx > 40 && current > 0) goTo(current - 1);      // Swipe right
-    else if (dx < -40 && current < radios.length - 1) goTo(current + 1);  // Swipe left
+    if (dx > 40 && current > 0) {
+      radios[current - 1].checked = true;
+      current--;
+    } else if (dx < -40 && current < radios.length - 1) {
+      radios[current + 1].checked = true;
+      current++;
+    }
     startX = null;
   });
-
-  // Keyboard arrows support
-  slidesDiv.tabIndex = 0;
-  slidesDiv.addEventListener('keydown', function(e) {
-    if (e.key === "ArrowLeft" && current > 0) goTo(current - 1);
-    if (e.key === "ArrowRight" && current < radios.length - 1) goTo(current + 1);
-  });
-})();
+});
 </script>
 	</body>
 </html>
