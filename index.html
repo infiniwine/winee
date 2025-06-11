@@ -12,52 +12,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0; top: 0; width: 100vw; height: 100vh;
-  overflow: auto;
-  background: rgba(30, 30, 30, 0.55);
-  backdrop-filter: blur(3px);
-}
-.modal-content {
-  background: rgba(255,255,255,0.90);
-  margin: 5vh auto;
-  padding: 3em 2em;
-  border: none;
-  width: 90vw;
-  max-width: 700px;
-  min-height: 40vh;      /* This sets the modal height to 40% of the viewport */
-  border-radius: 22px;
-  text-align: left;
-  position: relative;
-  box-shadow: 0 8px 48px rgba(0,0,0,0.25), 0 1.5px 8px #e2e2e2;
-  font-size: 1.2em;
-  transition: transform 0.2s;
-  animation: modalFadeIn 0.4s;
-}
-@keyframes modalFadeIn {
-  from { transform: translateY(60px) scale(0.97); opacity: 0; }
-  to   { transform: translateY(0) scale(1); opacity: 1; }
-}
-.close-modal {
-  color: #222;
-  background: rgba(200,200,200,0.4);
-  border-radius: 50%;
-  position: absolute;
-  top: 18px; right: 28px;
-  font-size: 34px; font-weight: bold; cursor: pointer;
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  transition: background 0.2s, color 0.2s;
-}
-.close-modal:hover, .close-modal:focus {
-  background: #222;
-  color: #fff;
-  text-decoration: none;
-  cursor: pointer;
-}
     html {
       scroll-behavior: smooth;
     }
@@ -139,9 +93,8 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 							<h2>Magna etiam feugiat</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id ante sed ex pharetra lacinia sit amet vel massa. Donec facilisis laoreet nulla eu bibendum. Donec ut ex risus. Fusce lorem lectus, pharetra pretium massa et, hendrerit vestibulum odio lorem ipsum dolor sit amet.</p>
 							<ul class="actions stacked">
-								<li>
-  <a href="#" class="button learn-more-btn" data-info="Owning our NFT gives you exclusive benefits, including access to VIP events and exclusive wine releases.">Learn More</a>
-</li>
+								<li><a href="#" class="button">Learn More</a></li>
+							</ul>
 						</div>
 						<div class="image">
 							<img <img class="img-hover" <img src="https://fratelliwines.in/cdn/shop/products/Artboard1_53a15f3c-85ec-4f43-89b3-e2396a4446ee_1200x.jpg?v=1634041520" alt="Wine Photo" />
@@ -438,4 +391,23 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitt
+								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+</html>
