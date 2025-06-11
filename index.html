@@ -438,38 +438,53 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitt
+								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
+							</ul>
+							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+			</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+<!-- Modal -->
+<div id="learnMoreModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 id="modalTitle">More Information</h2>
+    <p id="modalInfo"></p>
+  </div>
+</div>
 <script>
-  // Modal logic for all .learn-more-btn buttons
-  document.addEventListener('DOMContentLoaded', function() {
-    var modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <div class="modal-text"></div>
-      </div>
-    `;
-    document.body.appendChild(modal);
-
-    var modalText = modal.querySelector('.modal-text');
-    var closeModal = modal.querySelector('.close-modal');
-
-    document.querySelectorAll('.learn-more-btn').forEach(function(btn) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        modalText.textContent = btn.getAttribute('data-info') || '';
-        modal.style.display = 'block';
-      });
-    });
-
-    closeModal.onclick = function() {
-      modal.style.display = 'none';
-    };
-    window.onclick = function(event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
+  // Open modal and set info text
+  document.querySelectorAll('.learn-more-btn').forEach(btn => {
+    btn.onclick = function(event) {
+      event.preventDefault();
+      document.getElementById('modalTitle').textContent = "More Information";
+      document.getElementById('modalInfo').textContent = btn.getAttribute('data-info');
+      document.getElementById('learnMoreModal').style.display = 'block';
     };
   });
+
+  // Close modal
+  document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('learnMoreModal').style.display = 'none';
+  };
+  // Close modal when clicking outside content
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('learnMoreModal')) {
+      document.getElementById('learnMoreModal').style.display = 'none';
+    }
+  };
 </script>
+	</body>
+</html>
