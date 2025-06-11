@@ -475,5 +475,28 @@ if (localStorage.getItem('ageVerified') === 'yes') {
     <button onclick="sendMessage()">Send</button>
   </div>
 </div>
+<script>
+  // Modal for Learn More button
+  document.querySelectorAll('.learn-more-btn').forEach(btn => {
+    btn.onclick = function() {
+      document.getElementById('modalTitle').textContent = btn.previousElementSibling.previousElementSibling.textContent + ' - More Information';
+      document.getElementById('modalInfo').textContent = btn.getAttribute('data-info');
+      document.getElementById('learnMoreModal').style.display = 'block';
+    };
+  });
+
+  // Close modal when clicking X
+  document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('learnMoreModal').style.display = 'none';
+  };
+  // Close modal when clicking outside the content
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('learnMoreModal')) {
+      document.getElementById('learnMoreModal').style.display = 'none';
+    }
+  };
+</script>
+</body>
+</html>
 	</body>
 </html>
