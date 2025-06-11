@@ -12,6 +12,18 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
+.animated-border {
+  padding: 1em 2em;
+  border: 4px solid;
+  border-image: linear-gradient(90deg, #8A1538, #D4AF37) 1;
+  border-radius: 12px;
+  transition: box-shadow 0.3s, border-image 0.5s;
+}
+
+.animated-border:hover {
+  box-shadow: 0 0 20px #D4AF3788;
+  border-image: linear-gradient(90deg, #D4AF37, #8A1538) 1;
+}
 .modal {
   display: none;
   position: fixed;
