@@ -12,46 +12,6 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
-@keyframes border-move {
-  0% {
-    border-color: #8A1538;
-  }
-  50% {
-    border-color: #D4AF37;
-  }
-  100% {
-    border-color: #8A1538;
-  }
-}
-.moving-border {
-  border: 3px solid #8A1538;
-  border-radius: 12px;
-  padding: 1em 2em;
-  animation: border-move 2s linear infinite;
-}
-.grow-border {
-  border: 2px solid #8A1538;
-  border-radius: 10px;
-  padding: 1em 2em;
-  transition: border-width 0.3s, box-shadow 0.3s;
-}
-
-.grow-border:hover {
-  border-width: 6px;
-  box-shadow: 0 0 12px #D4AF3777;
-}
-.animated-border {
-  padding: 1em 2em;
-  border: 4px solid;
-  border-image: linear-gradient(90deg, #8A1538, #D4AF37) 1;
-  border-radius: 12px;
-  transition: box-shadow 0.3s, border-image 0.5s;
-}
-
-.animated-border:hover {
-  box-shadow: 0 0 20px #D4AF3788;
-  border-image: linear-gradient(90deg, #D4AF37, #8A1538) 1;
-}
 .modal {
   display: none;
   position: fixed;
@@ -147,7 +107,6 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 <body class="is-preload">
 <nav style="position:fixed;top:0;right:0;left:0;z-index:100;background:rgba(34,34,34,0.85);padding:0.7em 0;border-radius:0;">
   <ul style="display:flex;justify-content:flex-end;gap:2em;list-style:none;margin:0;padding:0 3em;">
-<li style="margin-right:auto;">
     <li><a href="#home" style="color:#fff;text-decoration:none;font-weight:bold;">Home</a></li>
     <li><a href="#about-wine" style="color:#fff;text-decoration:none;font-weight:bold;">About Wine</a></li>
     <li><a href="#nft" style="color:#fff;text-decoration:none;font-weight:bold;">NFT</a></li>
@@ -161,9 +120,6 @@ if (localStorage.getItem('ageVerified') === 'yes') {
   <div class="content">
     <h1>NUMBER WINE - ინფინისგან</h1>
     <p class="major">შეიძინე Numberwine ღვინო Infini კომპანიიდან და მიიღე VIP NFT, რომელიც გაძლევს ექსკლუზიურ წვდომას ფართზე, განსაკუთრებულ ფასდაკლებებსა და სპეციალურ პრივილეგიებს მხოლოდ ჩვენი მომხმარებლებისთვის.</p>
-<div class="moving-border">
-  Animated Border Example
-</div>
   </div>
   <div class="image">
     <div style="position: relative; width: 100%; height: 100%; padding-bottom: 56.25%;">
@@ -482,53 +438,4 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 					<footer class="wrapper style1 align-center">
 						<div class="inner">
 							<ul class="icons">
-								<li><a href="#" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a href="#" class="icon brands style2 fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-								<li><a href="#" class="icon style2 fa-envelope"><span class="label">Email</span></a></li>
-							</ul>
-							<p>&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-						</div>
-					</footer>
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-<!-- Modal -->
-<div id="learnMoreModal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <h2 id="modalTitle">More Information</h2>
-    <p id="modalInfo"></p>
-  </div>
-</div>
-<script>
-  // Open modal and set info text
-  document.querySelectorAll('.learn-more-btn').forEach(btn => {
-    btn.onclick = function(event) {
-      event.preventDefault();
-      document.getElementById('modalTitle').textContent = "More Information";
-      document.getElementById('modalInfo').textContent = btn.getAttribute('data-info');
-      document.getElementById('learnMoreModal').style.display = 'block';
-    };
-  });
-
-  // Close modal
-  document.querySelector('.close-modal').onclick = function() {
-    document.getElementById('learnMoreModal').style.display = 'none';
-  };
-  // Close modal when clicking outside content
-  window.onclick = function(event) {
-    if (event.target == document.getElementById('learnMoreModal')) {
-      document.getElementById('learnMoreModal').style.display = 'none';
-    }
-  };
-</script>
-	</body>
-</html>
+								<li><a href="#" class="icon brands style2 fa-twitt
