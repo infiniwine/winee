@@ -444,5 +444,27 @@ if (localStorage.getItem('ageVerified') === 'yes') {
     <p id="modalInfo"></p>
   </div>
 </div>
+<script>
+  // Open modal and set info text
+  document.querySelectorAll('.learn-more-btn').forEach(btn => {
+    btn.onclick = function(event) {
+      event.preventDefault();
+      document.getElementById('modalTitle').textContent = "More Information";
+      document.getElementById('modalInfo').textContent = btn.getAttribute('data-info');
+      document.getElementById('learnMoreModal').style.display = 'block';
+    };
+  });
+
+  // Close modal
+  document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('learnMoreModal').style.display = 'none';
+  };
+  // Close modal when clicking outside content
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('learnMoreModal')) {
+      document.getElementById('learnMoreModal').style.display = 'none';
+    }
+  };
+</script>
 	</body>
 </html>
