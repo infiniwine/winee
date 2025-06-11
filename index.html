@@ -464,5 +464,14 @@ if (localStorage.getItem('ageVerified') === 'yes') {
     document.getElementById('learnMoreModal').style.display = 'none';
   }
 </script>
+<!-- Modal -->
+<div id="learnMoreModal" class="modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2 id="modalTitle">Learn More</h2>
+    <textarea id="modalTextarea" rows="5" style="width:100%;" placeholder="Write your message here..."></textarea>
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
 	</body>
 </html>
