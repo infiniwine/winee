@@ -439,3 +439,37 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 						<div class="inner">
 							<ul class="icons">
 								<li><a href="#" class="icon brands style2 fa-twitt
+<script>
+  // Modal logic for all .learn-more-btn buttons
+  document.addEventListener('DOMContentLoaded', function() {
+    var modal = document.createElement('div');
+    modal.className = 'modal';
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div class="modal-text"></div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    var modalText = modal.querySelector('.modal-text');
+    var closeModal = modal.querySelector('.close-modal');
+
+    document.querySelectorAll('.learn-more-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalText.textContent = btn.getAttribute('data-info') || '';
+        modal.style.display = 'block';
+      });
+    });
+
+    closeModal.onclick = function() {
+      modal.style.display = 'none';
+    };
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  });
+</script>
