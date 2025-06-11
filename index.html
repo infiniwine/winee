@@ -12,6 +12,23 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
  <style>
+@keyframes border-move {
+  0% {
+    border-color: #8A1538;
+  }
+  50% {
+    border-color: #D4AF37;
+  }
+  100% {
+    border-color: #8A1538;
+  }
+}
+.moving-border {
+  border: 3px solid #8A1538;
+  border-radius: 12px;
+  padding: 1em 2em;
+  animation: border-move 2s linear infinite;
+}
 .grow-border {
   border: 2px solid #8A1538;
   border-radius: 10px;
