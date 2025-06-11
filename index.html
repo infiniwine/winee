@@ -411,5 +411,32 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+<script>
+  // Open modal on "Learn More" click
+  document.querySelectorAll('.learn-more-btn').forEach(btn => {
+    btn.onclick = function() {
+      document.getElementById('learnMoreModal').style.display = 'block';
+      document.getElementById('modalTitle').textContent = btn.dataset.card + ' - Learn More';
+      document.getElementById('modalTextarea').value = '';
+    };
+  });
+
+  // Close modal
+  document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('learnMoreModal').style.display = 'none';
+  };
+  // Close modal when clicking outside content
+  window.onclick = function(event) {
+    if (event.target == document.getElementById('learnMoreModal')) {
+      document.getElementById('learnMoreModal').style.display = 'none';
+    }
+  };
+
+  // Example send function
+  function sendMessage() {
+    alert('Message sent: ' + document.getElementById('modalTextarea').value);
+    document.getElementById('learnMoreModal').style.display = 'none';
+  }
+</script>
 	</body>
 </html>
