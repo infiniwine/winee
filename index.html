@@ -506,18 +506,13 @@ if (localStorage.getItem('ageVerified') === 'yes') {
 <script>
   // Open modal and set info text
   document.querySelectorAll('.learn-more-btn').forEach(btn => {
-    btn.onclick = function(event) {
-      event.preventDefault();
-      document.getElementById('modalTitle').textContent = "More Information";
-      document.getElementById('modalInfo').innerHTML = `
-  <p style="text-align: justify;">
-    დასკანერებისას გადახვალ სივრცეში, რომელიც სპეციალურად ამ სერიისთვის შეიქმნა — სადაც თავმოყრილია პროექტის ვიზუალური მასალა, ინფორმაცია და შენი ღვინის ციფრული კვალი.<br>
-    ეს პლატფორმა აერთიანებს Numberwine-ის მფლობელებს ერთ გამოცდილებაში და გაძლევს წვდომას სიურპრიზებზე, კონტენტზე და შესაძლებლობებზე, რომლებიც ბევრად სცდება ერთი ბოთლის საზღვრებს.
-  </p>
-`;
-      document.getElementById('learnMoreModal').style.display = 'block';
-    };
-  });
+  btn.onclick = function(event) {
+    event.preventDefault();
+    document.getElementById('modalTitle').textContent = "More Information";
+    document.getElementById('modalInfo').innerHTML = btn.getAttribute('data-info');
+    document.getElementById('learnMoreModal').style.display = 'block';
+  };
+});
 
   // Close modal
   document.querySelector('.close-modal').onclick = function() {
